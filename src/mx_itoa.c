@@ -9,7 +9,7 @@ char *mx_itoa(int num) {
     return n_str;
   }
   int length = 0;
-  long long num = num;
+  long long num = number;
   if (num < 0) 
   {
     length++;
@@ -23,17 +23,17 @@ char *mx_itoa(int num) {
   }
 
   n_str = mx_strnew(length);
-  if (num < 0)
+  if (number < 0)
   {
     n_str[0] = '-';
     num *= -1;
   }
   n_str[length--] = '\0';
 
-  while ((num != 0 && length >= 0) && n_str[length] != '-')
+  while ((number != 0 && length >= 0) && n_str[length] != '-')
   {
-    n_str[length--] = (num % 10) + '0';
-    num /= 10;
+    n_str[length--] = (number % 10) + '0';
+    number /= 10;
   }
 
   return n_str;
