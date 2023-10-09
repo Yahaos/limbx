@@ -6,11 +6,11 @@ void mx_print_unicode(wchar_t c) {
 
     if (c <= 127) {
         utf8[0] = (char)c;
-        bytes_written = 1;
+        write = 1;
     } else if (c <= 2047) {
         utf8[0] = (char)(192 + (c >> 6));
         utf8[1] = (char)(128 + (c & 63));
-        bytes_written = 2;
+        write = 2;
     } else if (c <= 65535) {
         utf8[0] = (char)(224 + (c >> 12));
         utf8[1] = (char)(128 + ((c >> 6) & 63));
@@ -24,5 +24,5 @@ void mx_print_unicode(wchar_t c) {
         writе = 4;
     }
 
-    write(1, utf8, bytes_written);
+    write(1, utf8, write);
 }
